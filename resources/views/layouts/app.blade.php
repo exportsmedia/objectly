@@ -24,7 +24,7 @@
     <body :class="{ 'theme-dark': darkMode }" x-data="themeSetup()">
         <div class="flex h-screen bg-gray-50 dark:bg-gray-900" @keydown.escape="isOpen = false">
             
-            @include('dashboard.sidebar', $nav)
+            @include('dashboard.sidebar', ($nav ?? []))
 
             <div class="flex flex-col flex-1 w-full">
                 <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
@@ -32,10 +32,14 @@
                 </header>
 
                 <main class="h-full overflow-y-auto">
-                    <div class="container px-6 mx-auto grid">
-                        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">{{ $title }}</h2>
+                    <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
+                        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">{{ $title ?? $header }}</h2>
                     </div>
-                    {{ $slot }}
+                    <div class="pb-12">
+                        <div class="max-w-9xl mx-auto sm:px-6 lg:px-8">
+                            {{ $content ?? $slot }}
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>

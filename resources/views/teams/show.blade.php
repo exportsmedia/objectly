@@ -1,12 +1,11 @@
 <x-app-layout>
-    <x-slot name="header">
+    <x-slot name="title">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Team Settings') }}
         </h2>
     </x-slot>
 
-    <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+    <x-slot name="content">
             @livewire('teams.update-team-name-form', ['team' => $team])
 
             @livewire('teams.team-member-manager', ['team' => $team])
@@ -18,6 +17,5 @@
                     @livewire('teams.delete-team-form', ['team' => $team])
                 </div>
             @endif
-        </div>
-    </div>
+    </x-slot>
 </x-app-layout>
