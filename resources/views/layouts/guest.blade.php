@@ -14,10 +14,10 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
+        <script src="{{ asset('js/app.js') }}"></script>
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
+    <body  :class="{ 'theme-dark': darkMode }" x-data="themeSetup()">
+        <div class="bg-gray-50 dark:bg-gray-900">
             {{ $slot }}
         </div>
     </body>

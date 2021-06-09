@@ -26,7 +26,7 @@
                         @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox" value="{{ $permission }}" wire:model.defer="createApiTokenForm.permissions">
-                                <span class="ml-2 text-sm text-gray-600">{{ $permission }}</span>
+                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-200">{{ $permission }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -127,7 +127,7 @@
                 @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                     <label class="flex items-center">
                         <input type="checkbox" class="form-checkbox" value="{{ $permission }}" wire:model.defer="updateApiTokenForm.permissions">
-                        <span class="ml-2 text-sm text-gray-600">{{ $permission }}</span>
+                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-200">{{ $permission }}</span>
                     </label>
                 @endforeach
             </div>
